@@ -19,9 +19,9 @@ func TestB(t *testing.T) {
 	var sArr []bool
 	for _, e := range inArr {
 		fmt.Println("input: ", e)
-		get := CreateParser(e)
+		get, s := CreateParser(e)
 		inp := get()
-		sArr = append(sArr, (B(&inp, get)))
+		sArr = append(sArr, (B(&inp, get, s)))
 	}
 	fmt.Println(sArr)
 }
@@ -46,7 +46,8 @@ func TestCreateParser(t *testing.T) {
 	var sArr [][]byte
 	/* For each element of the array of examples, create a parser function */
 	for _, e := range inArr {
-		pArr = append(pArr, CreateParser(e))
+		p, _ := CreateParser(e)
+		pArr = append(pArr, p)
 	}
 	/* For each parser function, walk the enclosed string and append that string to sArr */
 	for _, e := range pArr {
@@ -70,4 +71,28 @@ func TestCreateParser(t *testing.T) {
 			if the element ends in '$', then the corresponding sArr element should be identical*,
 			if the element does not end in '$', then the corresponding sArr element should be equal to the
 				example element + '$' */
+}
+
+func TestSemanticsOfL(t *testing.T) {
+	input := "F."
+	get, s := CreateParser(input)
+	inp := get()
+	B(&inp, get, s)
+	fmt.Println(s.Peek())
+}
+
+func TestSemanticsOfAND(t *testing.T) {
+	input := "T^T^T^T^F^T^T."
+	get, s := CreateParser(input)
+	inp := get()
+	B(&inp, get, s)
+	fmt.Println(s.Peek())
+}
+
+func TestSemanticsOfOR(t *testing.T) {
+	input := "FvFvTvFvF."
+	get, s := CreateParser(input)
+	inp := get()
+	B(&inp, get, s)
+	fmt.Println(s.Peek())
 }
