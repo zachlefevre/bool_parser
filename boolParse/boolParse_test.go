@@ -14,6 +14,7 @@ func TestB(t *testing.T) {
 		"(TvF) -> T v(T)  .   $",
 		"TT.$",
 		"(T).",
+		"~~~T.",
 	}
 	var sArr []bool
 	for _, e := range inArr {
