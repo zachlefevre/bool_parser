@@ -1,0 +1,2 @@
+The code is arranged as it is to mimic the way recursive descent was taught in class.
+If I were not conforming to those guidelines, I would create a header object to hold the stack, current token, and get().
