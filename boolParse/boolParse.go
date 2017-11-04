@@ -19,10 +19,6 @@ func CreateParser(input string) (func() byte, *stack.Stack) {
 			for input[index] == ' ' {
 				index++
 			}
-			// fmt.Println("Analyzing: ", string(input[index]))
-			// if input[index] == '$' {
-			// 	fmt.Println("Reached end of string")
-			// }
 			return input[index]
 		},
 		stack.New()
