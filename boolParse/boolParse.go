@@ -6,8 +6,8 @@ import (
 )
 
 /*
-CreateParser returns a function which will return the next rune of a string each time
-it is called
+CreateParser returns a function which will return the next rune of a string each time the function is called,
+	and a stack.
 */
 func CreateParser(input string) (func() byte, *stack.Stack) {
 	index := -1
