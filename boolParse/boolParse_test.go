@@ -77,22 +77,22 @@ func TestSemanticsOfL(t *testing.T) {
 	input := "F."
 	get, s := CreateParser(input)
 	inp := get()
-	B(&inp, get, s)
-	fmt.Println(s.Peek())
+	fmt.Println("syntactically correct: ", B(&inp, get, s))
+	fmt.Println("value: ", s.Peek())
 }
 
 func TestSemanticsOfAND(t *testing.T) {
 	input := "T^T^T^T^F^T^T."
 	get, s := CreateParser(input)
 	inp := get()
-	B(&inp, get, s)
-	fmt.Println(s.Peek())
+	fmt.Println("syntactically correct: ", B(&inp, get, s))
+	fmt.Println("value: ", s.Peek())
 }
 
 func TestSemanticsOfOR(t *testing.T) {
 	input := "FvFvTvFvF."
 	get, s := CreateParser(input)
 	inp := get()
-	B(&inp, get, s)
-	fmt.Println(s.Peek())
+	fmt.Println("syntactically correct: ", B(&inp, get, s))
+	fmt.Println("value", s.Peek())
 }
