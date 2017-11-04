@@ -7,7 +7,7 @@ import "fmt"
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Println("Enter Text: ")
+	fmt.Print("(Enter an empty line to exit) Enter Text: ")
 	for scanner.Scan() {
 		if scanner.Text() == `` {
 			fmt.Println("Exiting")
@@ -20,7 +20,8 @@ func main() {
 
 		fmt.Println("syntactally correct: ", syntax)
 		fmt.Println("value: ", value)
-		fmt.Println("Enter Text: ")
+		fmt.Println("-------------------------")
+		fmt.Print("Enter Text: ")
 
 	}
 }
