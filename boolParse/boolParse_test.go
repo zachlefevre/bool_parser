@@ -96,3 +96,21 @@ func TestSemanticsOfOR(t *testing.T) {
 	fmt.Println("syntactically correct: ", B(&inp, get, s))
 	fmt.Println("value", s.Peek())
 }
+
+func TestImp(t *testing.T) {
+	inArr := []string{
+		"T -> F.",
+		"T -> T.",
+		"F -> T.",
+		"F -> F.",
+	}
+	var sArr []bool
+	for _, e := range inArr {
+		fmt.Println("input: ", e)
+		get, s := CreateParser(e)
+		inp := get()
+		B(&inp, get, s)
+		sArr = append(sArr, s.Pop().(bool))
+	}
+	fmt.Println(sArr)
+}
