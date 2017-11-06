@@ -18,8 +18,11 @@ func main() {
 		syntax := boolParse.B(&inp, get, stk)
 		value := stk.Pop()
 
-		fmt.Println("syntactally correct: ", syntax)
-		fmt.Println("value: ", value)
+		if syntax {
+			fmt.Println("value: ", value)
+		} else {
+			fmt.Println("syntactally correct: ", syntax)
+		}
 		fmt.Println("-------------------------")
 		fmt.Print("Enter Text: ")
 
